@@ -1,0 +1,626 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		01463F3321A858B600078CB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01463F3221A858B600078CB5 /* AppDelegate.swift */; };
+		01463F3521A858B600078CB5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01463F3421A858B600078CB5 /* ViewController.swift */; };
+		01463F3821A858B600078CB5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01463F3621A858B600078CB5 /* Main.storyboard */; };
+		01463F3A21A858B900078CB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01463F3921A858B900078CB5 /* Assets.xcassets */; };
+		01463F3D21A858B900078CB5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01463F3B21A858B900078CB5 /* LaunchScreen.storyboard */; };
+		01463F4221A858B900078CB5 /* TimeOfDay WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 01463F4121A858B900078CB5 /* TimeOfDay WatchKit App.app */; };
+		01463F4821A858B900078CB5 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01463F4621A858B900078CB5 /* Interface.storyboard */; };
+		01463F4A21A858B900078CB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01463F4921A858B900078CB5 /* Assets.xcassets */; };
+		01463F5121A858BA00078CB5 /* TimeOfDay WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 01463F5021A858BA00078CB5 /* TimeOfDay WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		01463F5621A858BA00078CB5 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01463F5521A858BA00078CB5 /* InterfaceController.swift */; };
+		01463F5821A858BA00078CB5 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01463F5721A858BA00078CB5 /* ExtensionDelegate.swift */; };
+		01463F5A21A858BA00078CB5 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01463F5921A858BA00078CB5 /* ComplicationController.swift */; };
+		01463F5C21A858BA00078CB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01463F5B21A858BA00078CB5 /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		01463F4321A858B900078CB5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 01463F2721A858B600078CB5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 01463F4021A858B900078CB5;
+			remoteInfo = "TimeOfDay WatchKit App";
+		};
+		01463F5221A858BA00078CB5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 01463F2721A858B600078CB5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 01463F4F21A858BA00078CB5;
+			remoteInfo = "TimeOfDay WatchKit Extension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		01463F6321A858BA00078CB5 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				01463F5121A858BA00078CB5 /* TimeOfDay WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		01463F6721A858BA00078CB5 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				01463F4221A858B900078CB5 /* TimeOfDay WatchKit App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		01463F2F21A858B600078CB5 /* TimeOfDay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeOfDay.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		01463F3221A858B600078CB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		01463F3421A858B600078CB5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		01463F3721A858B600078CB5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		01463F3921A858B900078CB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		01463F3C21A858B900078CB5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		01463F3E21A858B900078CB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		01463F4121A858B900078CB5 /* TimeOfDay WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TimeOfDay WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		01463F4721A858B900078CB5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		01463F4921A858B900078CB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		01463F4B21A858B900078CB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		01463F5021A858BA00078CB5 /* TimeOfDay WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "TimeOfDay WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		01463F5521A858BA00078CB5 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		01463F5721A858BA00078CB5 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		01463F5921A858BA00078CB5 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		01463F5B21A858BA00078CB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		01463F5D21A858BA00078CB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		01463F2C21A858B600078CB5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		01463F4D21A858BA00078CB5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		01463F2621A858B600078CB5 = {
+			isa = PBXGroup;
+			children = (
+				01463F3121A858B600078CB5 /* TimeOfDay */,
+				01463F4521A858B900078CB5 /* TimeOfDay WatchKit App */,
+				01463F5421A858BA00078CB5 /* TimeOfDay WatchKit Extension */,
+				01463F3021A858B600078CB5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		01463F3021A858B600078CB5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				01463F2F21A858B600078CB5 /* TimeOfDay.app */,
+				01463F4121A858B900078CB5 /* TimeOfDay WatchKit App.app */,
+				01463F5021A858BA00078CB5 /* TimeOfDay WatchKit Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		01463F3121A858B600078CB5 /* TimeOfDay */ = {
+			isa = PBXGroup;
+			children = (
+				01463F3221A858B600078CB5 /* AppDelegate.swift */,
+				01463F3421A858B600078CB5 /* ViewController.swift */,
+				01463F3621A858B600078CB5 /* Main.storyboard */,
+				01463F3921A858B900078CB5 /* Assets.xcassets */,
+				01463F3B21A858B900078CB5 /* LaunchScreen.storyboard */,
+				01463F3E21A858B900078CB5 /* Info.plist */,
+			);
+			path = TimeOfDay;
+			sourceTree = "<group>";
+		};
+		01463F4521A858B900078CB5 /* TimeOfDay WatchKit App */ = {
+			isa = PBXGroup;
+			children = (
+				01463F4621A858B900078CB5 /* Interface.storyboard */,
+				01463F4921A858B900078CB5 /* Assets.xcassets */,
+				01463F4B21A858B900078CB5 /* Info.plist */,
+			);
+			path = "TimeOfDay WatchKit App";
+			sourceTree = "<group>";
+		};
+		01463F5421A858BA00078CB5 /* TimeOfDay WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				01463F5521A858BA00078CB5 /* InterfaceController.swift */,
+				01463F5721A858BA00078CB5 /* ExtensionDelegate.swift */,
+				01463F5921A858BA00078CB5 /* ComplicationController.swift */,
+				01463F5B21A858BA00078CB5 /* Assets.xcassets */,
+				01463F5D21A858BA00078CB5 /* Info.plist */,
+			);
+			path = "TimeOfDay WatchKit Extension";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		01463F2E21A858B600078CB5 /* TimeOfDay */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 01463F6821A858BA00078CB5 /* Build configuration list for PBXNativeTarget "TimeOfDay" */;
+			buildPhases = (
+				01463F2B21A858B600078CB5 /* Sources */,
+				01463F2C21A858B600078CB5 /* Frameworks */,
+				01463F2D21A858B600078CB5 /* Resources */,
+				01463F6721A858BA00078CB5 /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				01463F4421A858B900078CB5 /* PBXTargetDependency */,
+			);
+			name = TimeOfDay;
+			productName = TimeOfDay;
+			productReference = 01463F2F21A858B600078CB5 /* TimeOfDay.app */;
+			productType = "com.apple.product-type.application";
+		};
+		01463F4021A858B900078CB5 /* TimeOfDay WatchKit App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 01463F6421A858BA00078CB5 /* Build configuration list for PBXNativeTarget "TimeOfDay WatchKit App" */;
+			buildPhases = (
+				01463F3F21A858B900078CB5 /* Resources */,
+				01463F6321A858BA00078CB5 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				01463F5321A858BA00078CB5 /* PBXTargetDependency */,
+			);
+			name = "TimeOfDay WatchKit App";
+			productName = "TimeOfDay WatchKit App";
+			productReference = 01463F4121A858B900078CB5 /* TimeOfDay WatchKit App.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		01463F4F21A858BA00078CB5 /* TimeOfDay WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 01463F6021A858BA00078CB5 /* Build configuration list for PBXNativeTarget "TimeOfDay WatchKit Extension" */;
+			buildPhases = (
+				01463F4C21A858BA00078CB5 /* Sources */,
+				01463F4D21A858BA00078CB5 /* Frameworks */,
+				01463F4E21A858BA00078CB5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "TimeOfDay WatchKit Extension";
+			productName = "TimeOfDay WatchKit Extension";
+			productReference = 01463F5021A858BA00078CB5 /* TimeOfDay WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		01463F2721A858B600078CB5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1000;
+				LastUpgradeCheck = 1000;
+				ORGANIZATIONNAME = "Rogness Software";
+				TargetAttributes = {
+					01463F2E21A858B600078CB5 = {
+						CreatedOnToolsVersion = 10.0;
+					};
+					01463F4021A858B900078CB5 = {
+						CreatedOnToolsVersion = 10.0;
+					};
+					01463F4F21A858BA00078CB5 = {
+						CreatedOnToolsVersion = 10.0;
+					};
+				};
+			};
+			buildConfigurationList = 01463F2A21A858B600078CB5 /* Build configuration list for PBXProject "TimeOfDay" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 01463F2621A858B600078CB5;
+			productRefGroup = 01463F3021A858B600078CB5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				01463F2E21A858B600078CB5 /* TimeOfDay */,
+				01463F4021A858B900078CB5 /* TimeOfDay WatchKit App */,
+				01463F4F21A858BA00078CB5 /* TimeOfDay WatchKit Extension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		01463F2D21A858B600078CB5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01463F3D21A858B900078CB5 /* LaunchScreen.storyboard in Resources */,
+				01463F3A21A858B900078CB5 /* Assets.xcassets in Resources */,
+				01463F3821A858B600078CB5 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		01463F3F21A858B900078CB5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01463F4A21A858B900078CB5 /* Assets.xcassets in Resources */,
+				01463F4821A858B900078CB5 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		01463F4E21A858BA00078CB5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01463F5C21A858BA00078CB5 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		01463F2B21A858B600078CB5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01463F3521A858B600078CB5 /* ViewController.swift in Sources */,
+				01463F3321A858B600078CB5 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		01463F4C21A858BA00078CB5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01463F5821A858BA00078CB5 /* ExtensionDelegate.swift in Sources */,
+				01463F5621A858BA00078CB5 /* InterfaceController.swift in Sources */,
+				01463F5A21A858BA00078CB5 /* ComplicationController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		01463F4421A858B900078CB5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 01463F4021A858B900078CB5 /* TimeOfDay WatchKit App */;
+			targetProxy = 01463F4321A858B900078CB5 /* PBXContainerItemProxy */;
+		};
+		01463F5321A858BA00078CB5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 01463F4F21A858BA00078CB5 /* TimeOfDay WatchKit Extension */;
+			targetProxy = 01463F5221A858BA00078CB5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		01463F3621A858B600078CB5 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				01463F3721A858B600078CB5 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		01463F3B21A858B900078CB5 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				01463F3C21A858B900078CB5 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		01463F4621A858B900078CB5 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				01463F4721A858B900078CB5 /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		01463F5E21A858BA00078CB5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		01463F5F21A858BA00078CB5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		01463F6121A858BA00078CB5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B5ND7AU59N;
+				INFOPLIST_FILE = "TimeOfDay WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rogness-software.TimeOfDay.watchkitapp.watchkitextension";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.0;
+			};
+			name = Debug;
+		};
+		01463F6221A858BA00078CB5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B5ND7AU59N;
+				INFOPLIST_FILE = "TimeOfDay WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rogness-software.TimeOfDay.watchkitapp.watchkitextension";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.0;
+			};
+			name = Release;
+		};
+		01463F6521A858BA00078CB5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B5ND7AU59N;
+				IBSC_MODULE = TimeOfDay_WatchKit_Extension;
+				INFOPLIST_FILE = "TimeOfDay WatchKit App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rogness-software.TimeOfDay.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.0;
+			};
+			name = Debug;
+		};
+		01463F6621A858BA00078CB5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B5ND7AU59N;
+				IBSC_MODULE = TimeOfDay_WatchKit_Extension;
+				INFOPLIST_FILE = "TimeOfDay WatchKit App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rogness-software.TimeOfDay.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.0;
+			};
+			name = Release;
+		};
+		01463F6921A858BA00078CB5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B5ND7AU59N;
+				INFOPLIST_FILE = TimeOfDay/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rogness-software.TimeOfDay";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		01463F6A21A858BA00078CB5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B5ND7AU59N;
+				INFOPLIST_FILE = TimeOfDay/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rogness-software.TimeOfDay";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		01463F2A21A858B600078CB5 /* Build configuration list for PBXProject "TimeOfDay" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				01463F5E21A858BA00078CB5 /* Debug */,
+				01463F5F21A858BA00078CB5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		01463F6021A858BA00078CB5 /* Build configuration list for PBXNativeTarget "TimeOfDay WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				01463F6121A858BA00078CB5 /* Debug */,
+				01463F6221A858BA00078CB5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		01463F6421A858BA00078CB5 /* Build configuration list for PBXNativeTarget "TimeOfDay WatchKit App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				01463F6521A858BA00078CB5 /* Debug */,
+				01463F6621A858BA00078CB5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		01463F6821A858BA00078CB5 /* Build configuration list for PBXNativeTarget "TimeOfDay" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				01463F6921A858BA00078CB5 /* Debug */,
+				01463F6A21A858BA00078CB5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 01463F2721A858B600078CB5 /* Project object */;
+}
