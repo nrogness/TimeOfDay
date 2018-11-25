@@ -9,16 +9,40 @@
 import WatchKit
 
 class ExtensionDelegate: NSObject, WKExtensionDelegate {
+    
+    var scheduledBackgroundTask = false
+    
+    static func scheduleComplicationUpdate() {
+        let currentDate = Date()
+        let scheduleDate = currentDate + TimeInterval(ComplicationController.minutesPerTimeline * 60)
+        print("Scheduling background refresh task at \(currentDate) for: \(scheduleDate)")
+        WKExtension.shared().scheduleBackgroundRefresh(withPreferredDate: scheduleDate, userInfo: nil) { (error) in
+            if let err = error {
+                print("Failed to schedule background refresh: \(err)")
+            }
+        }
+        
+        
+    }
 
     func applicationDidFinishLaunching() {
         // Perform any final initialization of your application.
         
-        // start the background update
+        print("ExtensionDelegate applicationDidFinishLaunching()")
         
+        // start the background update.  This is only called when the app actually starts, so we need to
+//        if (!scheduledBackgroundTask) {
+//            ExtensionDelegate.scheduleComplicationUpdate()
+//            scheduledBackgroundTask = true
+//        }
     }
 
     func applicationDidBecomeActive() {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        
+        print("ExtensionDelegate applicationDidBecomeActive")
+        
+        
     }
 
     func applicationWillResignActive() {
@@ -34,11 +58,14 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
             case let backgroundTask as WKApplicationRefreshBackgroundTask:
                 // Be sure to complete the background task once you’re done.
                
-//                let complicationServer = CLKComplicationServer.sharedInstance()
-//                for complication in complicationServer.activeComplications! {
-//                    print("UPDATE COMPLICATION")
-//                    complicationServer.reloadTimeline(for: complication)
-//                }
+                let complicationServer = CLKComplicationServer.sharedInstance()
+                for complication in complicationServer.activeComplications! {
+                    print("UPDATE COMPLICATION")
+                    complicationServer.reloadTimeline(for: complication)
+                }
+                
+                ExtensionDelegate.scheduleComplicationUpdate()
+                scheduledBackgroundTask = true
                 
                 backgroundTask.setTaskCompletedWithSnapshot(false)
             case let snapshotTask as WKSnapshotRefreshBackgroundTask:

@@ -11,8 +11,12 @@ import ClockKit
 
 class ComplicationController: NSObject, CLKComplicationDataSource {
     
+    static let minutesPerTimeline = 5
+    
     override init() {
         print("ComplicationController init()")
+        
+        ExtensionDelegate.scheduleComplicationUpdate()
     }
     
     deinit {
@@ -31,15 +35,16 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     
     func getTimelineEndDate(for complication: CLKComplication, withHandler handler: @escaping (Date?) -> Void) {
         
-        let calendar = Calendar.current
-        let dateComponents = DateComponents(calendar: calendar,
-                                            year: 1,
-                                            month: 0,
-                                            day: 0)
+//        let calendar = Calendar.current
+//        let dateComponents = DateComponents(calendar: calendar,
+//                                            year: 1,
+//                                            month: 0,
+//                                            day: 0)
+//
+//        let yearFromNow = calendar.date(byAdding: dateComponents, to: Date())
         
-        let yearFromNow = calendar.date(byAdding: dateComponents, to: Date())
-        
-        handler(yearFromNow)
+        let hourFromNow = Date() + TimeInterval(ComplicationController.minutesPerTimeline * 60)
+        handler(hourFromNow)
     }
     
     func getPrivacyBehavior(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationPrivacyBehavior) -> Void) {
@@ -94,7 +99,9 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         nextMinute = 60 - nextMinute.truncatingRemainder(dividingBy: 60)
         currentDate = currentDate + nextMinute + 1
         
-        while (entries.count < limit) {
+        let realLimit = (limit > ComplicationController.minutesPerTimeline) ? ComplicationController.minutesPerTimeline : limit
+        
+        while (entries.count < realLimit) {
             entries.append(createTimelineEntry(from: currentDate))
             currentDate = currentDate + 60
         }

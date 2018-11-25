@@ -475,7 +475,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.rogness-software.TimeOfDay.watchkitapp.watchkitextension";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rogness-software.timeofday.watchkitapp.watchkitextension";
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -497,7 +497,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.rogness-software.TimeOfDay.watchkitapp.watchkitextension";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rogness-software.timeofday.watchkitapp.watchkitextension";
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -516,7 +516,7 @@
 				DEVELOPMENT_TEAM = B5ND7AU59N;
 				IBSC_MODULE = TimeOfDay_WatchKit_Extension;
 				INFOPLIST_FILE = "TimeOfDay WatchKit App/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.rogness-software.TimeOfDay.watchkitapp";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rogness-software.timeofday.watchkitapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -535,7 +535,7 @@
 				DEVELOPMENT_TEAM = B5ND7AU59N;
 				IBSC_MODULE = TimeOfDay_WatchKit_Extension;
 				INFOPLIST_FILE = "TimeOfDay WatchKit App/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.rogness-software.TimeOfDay.watchkitapp";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rogness-software.timeofday.watchkitapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -556,10 +556,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.rogness-software.TimeOfDay";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rogness-software.timeofday";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -574,10 +574,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.rogness-software.TimeOfDay";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rogness-software.timeofday";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
