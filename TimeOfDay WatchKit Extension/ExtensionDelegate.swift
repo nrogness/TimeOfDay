@@ -21,8 +21,15 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
                 print("Failed to schedule background refresh: \(err)")
             }
         }
-        
-        
+    }
+    
+    static func reloadComplications() {
+        let complicationServer = CLKComplicationServer.sharedInstance()
+        guard let complications = complicationServer.activeComplications else { return }
+        for complication in complications {
+            print("UPDATE COMPLICATION")
+            complicationServer.reloadTimeline(for: complication)
+        }
     }
 
     func applicationDidFinishLaunching() {
@@ -58,11 +65,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
             case let backgroundTask as WKApplicationRefreshBackgroundTask:
                 // Be sure to complete the background task once you’re done.
                
-                let complicationServer = CLKComplicationServer.sharedInstance()
-                for complication in complicationServer.activeComplications! {
-                    print("UPDATE COMPLICATION")
-                    complicationServer.reloadTimeline(for: complication)
-                }
+                ExtensionDelegate.reloadComplications()
                 
                 ExtensionDelegate.scheduleComplicationUpdate()
                 scheduledBackgroundTask = true

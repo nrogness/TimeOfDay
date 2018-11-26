@@ -56,14 +56,30 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     private func createTemplate(from date:Date) -> CLKComplicationTemplate {
         let dayOfMonth = Calendar.current.component(.day, from: date)
         
-        let gaugeTemplate = CLKComplicationTemplateGraphicCircularClosedGaugeText()
-        gaugeTemplate.centerTextProvider = CLKSimpleTextProvider(text: "\(dayOfMonth)", shortText: "\(dayOfMonth)")
         
-        let guageProvider = CLKSimpleGaugeProvider(style: .ring, gaugeColor: .white, fillFraction: 1.0)
+        let dayProvider = CLKSimpleTextProvider(text: "\(dayOfMonth)", shortText: "\(dayOfMonth)")
+        
+        var guageColor:UIColor = .white
+        if let timeColorName = UserDefaults.standard.object(forKey: "TimeColor") as? String {
+            if let timeColor = Colors.color(namedBy: timeColorName) {
+                guageColor = timeColor
+            }
+        }
+        
+        dayProvider.tintColor = guageColor
+        
+        let guageProvider = CLKSimpleGaugeProvider(style: .ring, gaugeColor: guageColor, fillFraction: 1.0)
+        
+        let gaugeTemplate = CLKComplicationTemplateGraphicCircularClosedGaugeText()
+        gaugeTemplate.centerTextProvider = dayProvider
         gaugeTemplate.gaugeProvider = guageProvider
         
         let template = CLKComplicationTemplateGraphicBezelCircularText()
-        template.textProvider = CLKTimeTextProvider(date: date)
+        
+        let textProvider = CLKTimeTextProvider(date: date)
+        template.textProvider = textProvider
+        
+       
         template.circularTemplate = gaugeTemplate
         
         return template
