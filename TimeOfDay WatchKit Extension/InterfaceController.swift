@@ -10,7 +10,7 @@ import WatchKit
 import Foundation
 
 class Colors {
-    static let colors:[(UIColor, String)] = [(.white, "White"), (.red, "Red"), (.blue, "Blue"), (.green, "Green"), (.black, "Black")]
+    static let colors:[(UIColor, String)] = [(.white, "White"), (.red, "Red"), (.blue, "Blue"), (.green, "Green"), (.yellow, "Yellow"), (.cyan, "Cyan")]
     
     static var names:[String] {
         return colors.map({ (_, name) -> String in
@@ -41,13 +41,16 @@ class Colors {
 
 class InterfaceController: WKInterfaceController {
     
-    @IBOutlet var dateLabel:WKInterfaceDate!
+    @IBOutlet var dateLabel:WKInterfaceLabel!
     @IBOutlet var colorPicker:WKInterfacePicker!
+    @IBOutlet weak var topGroup: WKInterfaceGroup!
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         
         // Configure interface objects here.
+        let dayOfMonth = Calendar.current.component(.day, from: Date())
+        dateLabel.setText("\(dayOfMonth)")
         
         // Get the color from UserDefaults
         var currentColorIndex = 0
@@ -58,6 +61,7 @@ class InterfaceController: WKInterfaceController {
             
             if let color = Colors.color(namedBy: currentColorName) {
                 dateLabel.setTextColor(color)
+                topGroup.setBackgroundColor(color)
             }
         }
         
@@ -85,6 +89,7 @@ class InterfaceController: WKInterfaceController {
         let (color, name) = Colors.colors[value]
         
         dateLabel.setTextColor(color)
+        topGroup.setBackgroundColor(color)
         
         UserDefaults.standard.set(name, forKey: "TimeColor")
         
