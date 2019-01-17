@@ -20,6 +20,8 @@
 		01463F5821A858BA00078CB5 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01463F5721A858BA00078CB5 /* ExtensionDelegate.swift */; };
 		01463F5A21A858BA00078CB5 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01463F5921A858BA00078CB5 /* ComplicationController.swift */; };
 		01463F5C21A858BA00078CB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01463F5B21A858BA00078CB5 /* Assets.xcassets */; };
+		9622F90921C1CED700E4C333 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9622F90821C1CED700E4C333 /* Colors.swift */; };
+		9622F90A21C1CFE500E4C333 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9622F90821C1CED700E4C333 /* Colors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +84,7 @@
 		01463F5921A858BA00078CB5 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
 		01463F5B21A858BA00078CB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		01463F5D21A858BA00078CB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9622F90821C1CED700E4C333 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +108,7 @@
 		01463F2621A858B600078CB5 = {
 			isa = PBXGroup;
 			children = (
+				9622F90721C1CEA600E4C333 /* Common */,
 				01463F3121A858B600078CB5 /* TimeOfDay */,
 				01463F4521A858B900078CB5 /* TimeOfDay WatchKit App */,
 				01463F5421A858BA00078CB5 /* TimeOfDay WatchKit Extension */,
@@ -155,6 +159,14 @@
 				01463F5D21A858BA00078CB5 /* Info.plist */,
 			);
 			path = "TimeOfDay WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		9622F90721C1CEA600E4C333 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				9622F90821C1CED700E4C333 /* Colors.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -290,6 +302,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				01463F3521A858B600078CB5 /* ViewController.swift in Sources */,
+				9622F90921C1CED700E4C333 /* Colors.swift in Sources */,
 				01463F3321A858B600078CB5 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -299,6 +312,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				01463F5821A858BA00078CB5 /* ExtensionDelegate.swift in Sources */,
+				9622F90A21C1CFE500E4C333 /* Colors.swift in Sources */,
 				01463F5621A858BA00078CB5 /* InterfaceController.swift in Sources */,
 				01463F5A21A858BA00078CB5 /* ComplicationController.swift in Sources */,
 			);
