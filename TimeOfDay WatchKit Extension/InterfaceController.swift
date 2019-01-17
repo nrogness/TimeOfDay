@@ -7,6 +7,7 @@
 //
 
 import WatchKit
+import WatchConnectivity
 import Foundation
 
 class InterfaceController: WKInterfaceController {
@@ -17,7 +18,22 @@ class InterfaceController: WKInterfaceController {
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
-        
+    }
+    
+    override func willActivate() {
+        // This method is called when watch view controller is about to be visible to user
+        super.willActivate()
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshContent), name: .refresh, object: nil)
+        refreshContent()
+    }
+    
+    override func didDeactivate() {
+        // This method is called when watch view controller is no longer visible
+        NotificationCenter.default.removeObserver(self)
+        super.didDeactivate()
+    }
+    
+    @objc func refreshContent() {
         // Configure interface objects here.
         let dayOfMonth = Calendar.current.component(.day, from: Date())
         dateLabel.setText("\(dayOfMonth)")
@@ -44,17 +60,6 @@ class InterfaceController: WKInterfaceController {
         colorPicker.setSelectedItemIndex(currentColorIndex)
     }
     
-    override func willActivate() {
-        // This method is called when watch view controller is about to be visible to user
-        
-        super.willActivate()
-    }
-    
-    override func didDeactivate() {
-        // This method is called when watch view controller is no longer visible
-        super.didDeactivate()
-    }
-    
     @IBAction func colorPickerAction(_ value: Int) {
         let (color, name) = Colors.colors[value]
         
@@ -64,5 +69,15 @@ class InterfaceController: WKInterfaceController {
         UserDefaults.standard.set(name, forKey: "TimeColor")
         
         ExtensionDelegate.reloadComplications()
+        
+        if WCSession.isSupported() {
+            // 3
+            do {
+                let dictionary = ["TimeColor": name]
+                try WCSession.default.updateApplicationContext(dictionary)
+            } catch {
+                print("ERROR: \(error)")
+            }
+        }
     }
 }

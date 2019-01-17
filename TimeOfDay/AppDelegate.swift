@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import WatchConnectivity
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        setupWatchConnectivity()
         return true
     }
 
@@ -41,6 +43,53 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    func setupWatchConnectivity() {
+        // 1
+        if WCSession.isSupported() {
+            // 2
+            let session = WCSession.default
+            // 3
+            session.delegate = self
+            // 4
+            session.activate()
+        }
+    }
 
 }
 
+
+extension AppDelegate: WCSessionDelegate {
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        if let error = error {
+            print("WC Session activation failed with error: \(error.localizedDescription)")
+            return
+        }
+        print("WC Session activated with state: \(activationState.rawValue)")
+    }
+    
+    func sessionDidBecomeInactive(_ session: WCSession) {
+        print("WC Session did become inactive")
+    }
+    
+    func sessionDidDeactivate(_ session: WCSession) {
+        print("WC Session did deactivate")
+        WCSession.default.activate()
+    }
+    
+    func session(_ session: WCSession, didReceiveApplicationContext
+        applicationContext:[String:Any]) {
+        
+        print("Received app context")
+        
+        if let colorName = applicationContext["TimeColor"] as? String {
+            print("The color is \(colorName)")
+            UserDefaults.standard.set(colorName, forKey: "TimeColor")
+            
+            DispatchQueue.main.async {
+                if let vc = self.window?.rootViewController as? ViewController {
+                    vc.refresh()
+                }
+            }
+        }
+    }
+}
