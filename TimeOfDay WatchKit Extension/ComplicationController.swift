@@ -35,14 +35,6 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     
     func getTimelineEndDate(for complication: CLKComplication, withHandler handler: @escaping (Date?) -> Void) {
         
-//        let calendar = Calendar.current
-//        let dateComponents = DateComponents(calendar: calendar,
-//                                            year: 1,
-//                                            month: 0,
-//                                            day: 0)
-//
-//        let yearFromNow = calendar.date(byAdding: dateComponents, to: Date())
-        
         let hourFromNow = Date() + TimeInterval(ComplicationController.minutesPerTimeline * 60)
         handler(hourFromNow)
     }

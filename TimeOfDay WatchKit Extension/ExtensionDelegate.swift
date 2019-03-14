@@ -7,6 +7,7 @@
 //
 
 import WatchKit
+import WatchConnectivity
 
 class ExtensionDelegate: NSObject, WKExtensionDelegate {
     
@@ -34,14 +35,9 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
 
     func applicationDidFinishLaunching() {
         // Perform any final initialization of your application.
-        
+        setupWatchConnectivity()
         print("ExtensionDelegate applicationDidFinishLaunching()")
-        
-        // start the background update.  This is only called when the app actually starts, so we need to
-//        if (!scheduledBackgroundTask) {
-//            ExtensionDelegate.scheduleComplicationUpdate()
-//            scheduledBackgroundTask = true
-//        }
+
     }
 
     func applicationDidBecomeActive() {
@@ -93,4 +89,37 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
         }
     }
 
+    func setupWatchConnectivity() {
+        if WCSession.isSupported() {
+            let session  = WCSession.default
+            session.delegate = self
+            session.activate()
+        }
+    }
+}
+
+extension Notification.Name {
+    static let refresh = Notification.Name("refresh")
+}
+
+extension ExtensionDelegate: WCSessionDelegate {
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        if let error = error {
+            print("WC Session activation failed with error: \(error.localizedDescription)")
+            return
+        }
+        
+        print("WC Session activated with state: \(activationState.rawValue)")
+    }
+    
+    func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
+        if let colorName = applicationContext["TimeColor"] as? String {
+            
+            UserDefaults.standard.set(colorName, forKey: "TimeColor")
+            ExtensionDelegate.reloadComplications()
+            
+            NotificationCenter.default.post(name: .refresh, object: nil)
+        }
+    }
+    
 }

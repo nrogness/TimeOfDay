@@ -11,12 +11,22 @@
         <!--Interface Controller-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller fullScreen="YES" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="TimeOfDay_WatchKit_App" customModuleProvider="target">
+                <controller fullBounds="YES" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="TimeOfDay_WatchKit_App" customModuleProvider="target">
                     <items>
-                        <dateLabel width="136" alignment="left" textAlignment="center" id="LHX-ck-gOy">
-                            <fontDescription key="font" style="UICTFontTextStyleBody"/>
-                            <dateFormatterStyle key="timeStyle" short="YES"/>
-                        </dateLabel>
+                        <group width="40" height="40" alignment="center" contentMode="center" radius="20" id="k9U-LN-s6C" userLabel="TopGroup">
+                            <items>
+                                <group width="32" height="32" alignment="center" verticalAlignment="center" radius="16" id="uvM-vk-VAs" userLabel="InnerGroup">
+                                    <items>
+                                        <label alignment="center" verticalAlignment="center" text="30" textAlignment="center" id="rOo-HT-Qsb" userLabel="DateLabel">
+                                            <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <fontDescription key="font" type="system" pointSize="20"/>
+                                        </label>
+                                    </items>
+                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </group>
+                            </items>
+                            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </group>
                         <picker height="100" alignment="left" id="sd7-GZ-7ar" userLabel="Color Picker">
                             <connections>
                                 <action selector="colorPickerAction:" destination="AgC-eL-Hgc" id="SEX-Lm-sGt"/>
@@ -25,7 +35,8 @@
                     </items>
                     <connections>
                         <outlet property="colorPicker" destination="sd7-GZ-7ar" id="FhT-1N-jYT"/>
-                        <outlet property="dateLabel" destination="LHX-ck-gOy" id="9jm-n6-6Je"/>
+                        <outlet property="dateLabel" destination="rOo-HT-Qsb" id="PDy-U5-sdc"/>
+                        <outlet property="topGroup" destination="k9U-LN-s6C" id="qj7-Xk-xVD"/>
                     </connections>
                 </controller>
             </objects>
