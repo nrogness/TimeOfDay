@@ -77,12 +77,37 @@ extension ViewController : UIPickerViewDelegate {
         dateLabel.textColor = color.0
         dateGaugeView.backgroundColor = color.0
         
+        sendUpdateToWatch(color: color.1)
+    }
+    
+    func sendUpdateToWatch(color:String) {
+        // If the watch app is active or we have run out of complication transfers for
+        // the day, use the application context, which only sends the latest copy of
+        // the data.
+        if WCSession.default.isReachable || WCSession.default.remainingComplicationUserInfoTransfers == 0 {
+            sendApplicationContextUpdate(color: color)
+        }
+        else {
+            sendUserInfoUpdate(color: color)
+        }
+    }
+    
+    func sendUserInfoUpdate(color:String) {
+        if WCSession.isSupported() {
+            let userInfo = ["TimeColor": color]
+            WCSession.default.transferCurrentComplicationUserInfo(userInfo)
+            let numLeft = WCSession.default.remainingComplicationUserInfoTransfers
+            print("Only \(numLeft) complication transfers left")
+        }
+    }
+    
+    func sendApplicationContextUpdate(color:String) {
         if WCSession.isSupported() {
             let session = WCSession.default
             if session.isWatchAppInstalled {
                 do {
-                    print("Sending TimeColor: \(color.1)")
-                    let dictionary = ["TimeColor": color.1]
+                    print("Sending TimeColor: \(color)")
+                    let dictionary = ["TimeColor": color]
                     try session.updateApplicationContext(dictionary)
                 } catch {
                     print("ERROR: \(error)")

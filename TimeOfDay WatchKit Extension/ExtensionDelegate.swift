@@ -51,6 +51,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
     func applicationWillResignActive() {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, etc.
+        print("ExtensionDelegate applicationWillResignActive")
     }
 
     func handle(_ backgroundTasks: Set<WKRefreshBackgroundTask>) {
@@ -68,21 +69,27 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
                 
                 backgroundTask.setTaskCompletedWithSnapshot(false)
             case let snapshotTask as WKSnapshotRefreshBackgroundTask:
+                print("BACKGROUND: WKSnapshotRefreshBackgroundTask")
                 // Snapshot tasks have a unique completion call, make sure to set your expiration date
                 snapshotTask.setTaskCompleted(restoredDefaultState: true, estimatedSnapshotExpiration: Date.distantFuture, userInfo: nil)
             case let connectivityTask as WKWatchConnectivityRefreshBackgroundTask:
+                print("BACKGROUND: WKWatchConnectivityRefreshBackgroundTask")
                 // Be sure to complete the connectivity task once you’re done.
                 connectivityTask.setTaskCompletedWithSnapshot(false)
             case let urlSessionTask as WKURLSessionRefreshBackgroundTask:
+                print("BACKGROUND: WKURLSessionRefreshBackgroundTask")
                 // Be sure to complete the URL session task once you’re done.
                 urlSessionTask.setTaskCompletedWithSnapshot(false)
             case let relevantShortcutTask as WKRelevantShortcutRefreshBackgroundTask:
+                print("BACKGROUND: WKRelevantShortcutRefreshBackgroundTask")
                 // Be sure to complete the relevant-shortcut task once you're done.
                 relevantShortcutTask.setTaskCompletedWithSnapshot(false)
             case let intentDidRunTask as WKIntentDidRunRefreshBackgroundTask:
+                print("BACKGROUND: WKIntentDidRunRefreshBackgroundTask")
                 // Be sure to complete the intent-did-run task once you're done.
                 intentDidRunTask.setTaskCompletedWithSnapshot(false)
             default:
+                print("BACKGROUND: \(task.classForCoder.description())")
                 // make sure to complete unhandled task types
                 task.setTaskCompletedWithSnapshot(false)
             }
@@ -114,12 +121,31 @@ extension ExtensionDelegate: WCSessionDelegate {
     
     func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
         if let colorName = applicationContext["TimeColor"] as? String {
+            print("Watch received app context color update to: \(colorName)")
             
-            UserDefaults.standard.set(colorName, forKey: "TimeColor")
-            ExtensionDelegate.reloadComplications()
-            
-            NotificationCenter.default.post(name: .refresh, object: nil)
+            updateWatch(for: colorName)
         }
+    }
+    
+    func session(_ session: WCSession, didReceiveUserInfo userInfo: [String : Any] = [:]) {
+        if let colorName = userInfo["TimeColor"] as? String {
+            print("Watch received user info color update to: \(colorName)")
+            updateWatch(for: colorName)
+        }
+    }
+    
+    func session(_ session: WCSession, didFinish userInfoTransfer: WCSessionUserInfoTransfer, error: Error?) {
+        if let error = error {
+            print("Watch failed to recieve user info transfer: \(error.localizedDescription)")
+            return
+        }
+    }
+    
+    func updateWatch(for colorName:String) {
+        UserDefaults.standard.set(colorName, forKey: "TimeColor")
+        ExtensionDelegate.reloadComplications()
+        
+        NotificationCenter.default.post(name: .refresh, object: nil)
     }
     
 }

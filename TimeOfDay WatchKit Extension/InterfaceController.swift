@@ -76,7 +76,7 @@ class InterfaceController: WKInterfaceController {
                 let dictionary = ["TimeColor": name]
                 try WCSession.default.updateApplicationContext(dictionary)
             } catch {
-                print("ERROR: \(error)")
+                print("ERROR updating context: \(error)")
             }
         }
     }

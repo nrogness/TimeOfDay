@@ -92,4 +92,10 @@ extension AppDelegate: WCSessionDelegate {
             }
         }
     }
+    
+    func session(_ session: WCSession, didFinish userInfoTransfer: WCSessionUserInfoTransfer, error: Error?) {
+        if let error = error {
+            print("Failed to send user info: \(error.localizedDescription)")
+        }
+    }
 }
